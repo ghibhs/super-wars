@@ -1,0 +1,69 @@
+[gd_scene load_steps=17 format=3 uid="uid://ctsho5wdl6r2q"]
+
+[ext_resource type="Texture2D" uid="uid://ci8jykrpeoo5g" path="res://assets/tiles/florest.png" id="1_i7141"]
+[ext_resource type="Script" uid="uid://cjrdqtngtttqw" path="res://scripts/camera_controller.gd" id="1_x5bqt"]
+[ext_resource type="Texture2D" uid="uid://rmofr5rynb1m" path="res://assets/tiles/grass.png" id="2_4mrxx"]
+[ext_resource type="Script" uid="uid://c0bllurar2ep4" path="res://scripts/game_map.gd" id="2_bvqpe"]
+[ext_resource type="Texture2D" uid="uid://cilfdhdwpnh3y" path="res://assets/tiles/mountain.png" id="3_7r4gi"]
+[ext_resource type="Script" uid="uid://b75l14ujfhc7" path="res://scripts/map_generator_ui.gd" id="3_nywxe"]
+[ext_resource type="Script" path="res://scripts/tile_selector.gd" id="4_abcde"]
+[ext_resource type="Texture2D" uid="uid://645nba8ml36u" path="res://assets/tiles/sand.png" id="4_w7kh3"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="5_pause"]
+[ext_resource type="Texture2D" uid="uid://cueuhrcd6xrlj" path="res://assets/tiles/water.png" id="5_e3hyu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
+texture = ExtResource("1_i7141")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhx03"]
+texture = ExtResource("2_4mrxx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8fc1"]
+texture = ExtResource("3_7r4gi")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xo05s"]
+texture = ExtResource("4_w7kh3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dss4m"]
+texture = ExtResource("5_e3hyu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7t5mc"]
+tile_size = Vector2i(32, 32)
+sources/5 = SubResource("TileSetAtlasSource_q5onr")
+sources/6 = SubResource("TileSetAtlasSource_jhx03")
+sources/7 = SubResource("TileSetAtlasSource_o8fc1")
+sources/8 = SubResource("TileSetAtlasSource_xo05s")
+sources/9 = SubResource("TileSetAtlasSource_dss4m")
+
+[node name="World" type="Node2D"]
+
+[node name="GameMap" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_7t5mc")
+script = ExtResource("2_bvqpe")
+map_width = 1000
+map_height = 1000
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(583, 348)
+rotation = 0.785397
+script = ExtResource("1_x5bqt")
+min_zoom = 0.08
+max_zoom = 3.0
+
+[node name="TileSelector" type="Node2D" parent="."]
+script = ExtResource("4_abcde")
+
+[node name="MapGeneratorUI" type="CanvasLayer" parent="."]
+script = ExtResource("3_nywxe")
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("5_pause")
