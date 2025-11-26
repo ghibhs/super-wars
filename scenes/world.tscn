@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://c0bllurar2ep4" path="res://scripts/game_map.gd" id="2_bvqpe"]
 [ext_resource type="Texture2D" uid="uid://cilfdhdwpnh3y" path="res://assets/tiles/mountain.png" id="3_7r4gi"]
 [ext_resource type="Script" uid="uid://b75l14ujfhc7" path="res://scripts/map_generator_ui.gd" id="3_nywxe"]
-[ext_resource type="Script" path="res://scripts/tile_selector.gd" id="4_abcde"]
+[ext_resource type="Script" uid="uid://ciwnx1l5ehreh" path="res://scripts/tile_selector.gd" id="4_abcde"]
 [ext_resource type="Texture2D" uid="uid://645nba8ml36u" path="res://assets/tiles/sand.png" id="4_w7kh3"]
-[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="5_pause"]
 [ext_resource type="Texture2D" uid="uid://cueuhrcd6xrlj" path="res://assets/tiles/water.png" id="5_e3hyu"]
+[ext_resource type="Script" uid="uid://fxr8hxau8wh4" path="res://scripts/pause_menu.gd" id="5_pause"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5onr"]
 texture = ExtResource("1_i7141")
@@ -61,6 +61,7 @@ max_zoom = 3.0
 
 [node name="TileSelector" type="Node2D" parent="."]
 script = ExtResource("4_abcde")
+selection_thickness = 4.0
 
 [node name="MapGeneratorUI" type="CanvasLayer" parent="."]
 script = ExtResource("3_nywxe")

@@ -53,6 +53,8 @@ func handle_click_start(_mouse_pos: Vector2) -> void:
 	drag_start_tile = tile_pos
 	drag_current_tile = tile_pos
 	clear_selection()
+	# Mostrar seleção imediatamente no tile inicial
+	update_area_selection()
 
 func handle_drag(_mouse_pos: Vector2) -> void:
 	var world_pos = get_global_mouse_position()
